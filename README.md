@@ -97,9 +97,9 @@ require('journal').setup({
 
 ### Default Keymaps
 
-<leader>td - Open daily journal
-<leader>tw - Open weekly journal
-<leader>tm - Open monthly journal
+`<leader>td` - Open daily journal
+`<leader>tw` - Open weekly journal
+`<leader>tm` - Open monthly journal
 
 ## Templates
 The plugin comes with structured templates that encourage meaningful reflection:
@@ -137,7 +137,7 @@ This plugin was born from the desire to:
 ### Morning Routine
 
 * Open Neovim
-* Press <leader>td or run :JournalDaily
+* Press `<leader>td` or run `:JournalDaily`
 * Reflect for 5-10 minutes
 * Start your day with intention
 
