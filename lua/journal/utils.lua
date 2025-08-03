@@ -22,7 +22,6 @@ M.insert_template_if_empty = function(template_name)
 		local template_path = vim.fn.expand(config.options.templates_path .. "/" .. template_name .. "-template.md")
 		vim.cmd("read " .. template_path)
 
-		-- Erstatt kun placeholders som faktisk eksisterer
 		local date_info = M.get_date_info()
 
 		-- Sjekk og erstatt kun hvis placeholder eksisterer
@@ -39,7 +38,6 @@ M.insert_template_if_empty = function(template_name)
 			vim.cmd("%s/{{ year }}/" .. date_info.year .. "/g")
 		end
 
-		-- Flytt cursor til første punkt
 		vim.cmd("normal! gg")
 		local line = vim.fn.search("- $", "n")
 		if line > 0 then
