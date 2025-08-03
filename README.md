@@ -36,18 +36,18 @@ A simple and focused journaling plugin for Neovim that helps you maintain daily 
 
 ```lua
 {
-  "yourusername/journal.nvim",
+  "orose/journal.nvim",
   config = function()
     require('journal').setup()
   end
 }
 ```
 
-### Using packer.nvim
+### Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 use {
-  'yourusername/journal.nvim',
+  'orose/journal.nvim',
   config = function()
     require('journal').setup()
   end
@@ -141,7 +141,8 @@ This plugin was born from the desire to:
 * Reflect for 5-10 minutes
 * Start your day with intention
 
-With Git
+### With Git
+
 Consider keeping your journal in a private Git repository:
 
 ```bash
@@ -152,6 +153,7 @@ git add . && git commit -m "Daily reflection" && git push
 ```
 
 🛠️ Templates
+
 Create your own templates in the templates/ directory. Use these placeholders:
 
 `{{ date }}` - Current date (YYYY-MM-DD)
@@ -160,9 +162,11 @@ Create your own templates in the templates/ directory. Use these placeholders:
 `{{ år }}` - Year
 
 🤝 Contributing
+
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 📄 License
+
 MIT License - see LICENSE file for details.
 
 🙏 Acknowledgments
