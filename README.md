@@ -143,23 +143,31 @@ This plugin was born from the desire to:
 
 With Git
 Consider keeping your journal in a private Git repository:
-bashcd ~/journal
+
+```bash
+cd ~/journal
 git init
 git remote add origin https://github.com/yourusername/my-journal.git
 git add . && git commit -m "Daily reflection" && git push
+```
+
 🛠️ Templates
 Create your own templates in the templates/ directory. Use these placeholders:
 
-{{ date }} - Current date (YYYY-MM-DD)
-{{ uke_nummer }} - Week number
-{{ måned }} - Month name
-{{ år }} - Year
+`{{ date }}` - Current date (YYYY-MM-DD)
+`{{ uke_nummer }}` - Week number
+`{{ måned }}` - Month name
+`{{ år }}` - Year
 
 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
+
 📄 License
 MIT License - see LICENSE file for details.
+
 🙏 Acknowledgments
 Inspired by the practice of daily reflection and the desire to use technology mindfully.
 
-Start your journaling journey today with :JournalDaily
+----- 
+
+*Start your journaling journey today with `:JournalDaily`*
