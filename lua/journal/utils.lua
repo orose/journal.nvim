@@ -29,14 +29,14 @@ M.insert_template_if_empty = function(template_name)
 		if vim.fn.search("{{ date }}", "n") > 0 then
 			vim.cmd("%s/{{ date }}/" .. date_info.date .. "/g")
 		end
-		if vim.fn.search("{{ uke_nummer }}", "n") > 0 then
-			vim.cmd("%s/{{ uke_nummer }}/" .. date_info.week .. "/g")
+		if vim.fn.search("{{ week_number }}", "n") > 0 then
+			vim.cmd("%s/{{ week_number }}/" .. date_info.week .. "/g")
 		end
-		if vim.fn.search("{{ måned }}", "n") > 0 then
-			vim.cmd("%s/{{ måned }}/" .. date_info.month_name .. "/g")
+		if vim.fn.search("{{ month }}", "n") > 0 then
+			vim.cmd("%s/{{ month }}/" .. date_info.month_name .. "/g")
 		end
-		if vim.fn.search("{{ år }}", "n") > 0 then
-			vim.cmd("%s/{{ år }}/" .. date_info.year .. "/g")
+		if vim.fn.search("{{ year }}", "n") > 0 then
+			vim.cmd("%s/{{ year }}/" .. date_info.year .. "/g")
 		end
 
 		-- Flytt cursor til første punkt

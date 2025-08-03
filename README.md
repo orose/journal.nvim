@@ -157,9 +157,9 @@ git add . && git commit -m "Daily reflection" && git push
 Create your own templates in the templates/ directory. Use these placeholders:
 
 `{{ date }}` - Current date (YYYY-MM-DD)
-`{{ uke_nummer }}` - Week number
-`{{ måned }}` - Month name
-`{{ år }}` - Year
+`{{ week_nummer }}` - Week number
+`{{ month }}` - Month name
+`{{ year }}` - Year
 
 🤝 Contributing
 
