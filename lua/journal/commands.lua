@@ -23,12 +23,12 @@ M.weekly = function() open_entry("weekly") end
 M.monthly = function() open_entry("monthly") end
 
 M.setup = function()
-	-- Opprett kommandoer
+	-- Register commands
 	vim.api.nvim_create_user_command("JournalDaily", M.daily, { desc = "Open daily journal entry" })
 	vim.api.nvim_create_user_command("JournalWeekly", M.weekly, { desc = "Open weekly journal entry" })
 	vim.api.nvim_create_user_command("JournalMonthly", M.monthly, { desc = "Open monthly journal entry" })
 
-	-- Sett opp keymaps
+	-- Register keymaps
 	local keymaps = config.options.keymaps
 	if keymaps.daily then
 		vim.keymap.set("n", keymaps.daily, ":JournalDaily<CR>", { desc = "Open daily journal" })
