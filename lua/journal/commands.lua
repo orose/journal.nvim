@@ -1,6 +1,7 @@
 local M = {}
 local config = require("journal.config")
-local utils = require("journal.utils")
+local date = require("journal.date")
+local template = require("journal.template")
 
 local entry_types = {
 	daily = function(d) return d.date .. ".md" end,
@@ -9,12 +10,12 @@ local entry_types = {
 }
 
 local function open_entry(entry_type)
-	local date_info = utils.get_date_info()
+	local date_info = date.get_date_info()
 	local month_path = vim.fn.expand(config.options.journal_path .. "/" .. date_info.year .. "/" .. date_info.month)
-	utils.ensure_directory(month_path)
+	date.ensure_directory(month_path)
 	local filename = month_path .. "/" .. entry_types[entry_type](date_info)
 	vim.cmd("edit " .. filename)
-	utils.insert_template_if_empty(entry_type)
+	template.insert_if_empty(entry_type)
 end
 
 M.daily = function() open_entry("daily") end
