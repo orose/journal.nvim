@@ -2,41 +2,24 @@ local M = {}
 local config = require("journal.config")
 local utils = require("journal.utils")
 
-M.daily = function()
+local entry_types = {
+	daily = function(d) return d.date .. ".md" end,
+	weekly = function(d) return "week-" .. d.week .. ".md" end,
+	monthly = function(d) return d.month_name .. "-" .. d.year .. ".md" end,
+}
+
+local function open_entry(entry_type)
 	local date_info = utils.get_date_info()
 	local month_path = vim.fn.expand(config.options.journal_path .. "/" .. date_info.year .. "/" .. date_info.month)
-
 	utils.ensure_directory(month_path)
-
-	local filename = month_path .. "/" .. date_info.date .. ".md"
+	local filename = month_path .. "/" .. entry_types[entry_type](date_info)
 	vim.cmd("edit " .. filename)
-
-	utils.insert_template_if_empty("daily")
+	utils.insert_template_if_empty(entry_type)
 end
 
-M.weekly = function()
-	local date_info = utils.get_date_info()
-	local month_path = vim.fn.expand(config.options.journal_path .. "/" .. date_info.year .. "/" .. date_info.month)
-
-	utils.ensure_directory(month_path)
-
-	local filename = month_path .. "/week-" .. date_info.week .. ".md"
-	vim.cmd("edit " .. filename)
-
-	utils.insert_template_if_empty("weekly")
-end
-
-M.monthly = function()
-	local date_info = utils.get_date_info()
-	local month_path = vim.fn.expand(config.options.journal_path .. "/" .. date_info.year .. "/" .. date_info.month)
-
-	utils.ensure_directory(month_path)
-
-	local filename = month_path .. "/" .. date_info.month_name .. "-" .. date_info.year .. ".md"
-	vim.cmd("edit " .. filename)
-
-	utils.insert_template_if_empty("monthly")
-end
+M.daily = function() open_entry("daily") end
+M.weekly = function() open_entry("weekly") end
+M.monthly = function() open_entry("monthly") end
 
 M.setup = function()
 	-- Opprett kommandoer
